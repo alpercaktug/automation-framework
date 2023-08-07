@@ -10,19 +10,15 @@ import org.springframework.stereotype.Component;
 @Component
 public class MainPage extends BasePage{
 
-    @Value("${app.url}")
-    private String appUrl;
     @Autowired
     private LoginPage loginPage;
     @Autowired
     private HomePage homePage;
-
-    public void navigate(){
-        navigatePage(appUrl);
-        System.out.println("Navigate to: " + appUrl);
-    }
+    @Autowired
+    private WebDriver webDriver;
 
     public void performLogin(){
+        webDriver.navigate().to("http://eaapp.somee.com");
         homePage.clickLogin();
         loginPage.login("admin", "password");
         loginPage.submitLogin();

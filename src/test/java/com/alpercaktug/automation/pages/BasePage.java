@@ -15,9 +15,4 @@ public abstract class BasePage {
         PageFactory.initElements(webDriver, this);
     }
 
-    public void navigatePage(String url){
-        webDriver.navigate().to(url);
-
-    }
-
 }
